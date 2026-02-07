@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nookmate - Your Travel Companion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Enhanced Video Background -->
+    <div class="video-background">
+        <!-- Main Video Background -->
+        <video 
+            id="bgVideo"
+            class="bg-video" 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            preload="auto">
+            <source src="bg.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <!-- Enhanced Video Overlay -->
+        <div class="video-overlay">
+            <div class="overlay-gradient"></div>
+            <div class="overlay-particles"></div>
+        </div>
+        
+        <!-- Enhanced Image Slideshow Fallback -->
+        <div class="slideshow-container" id="imageSlideshow">
+            <div class="slide active">
+                <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1920&h=1080&fit=crop" alt="Beautiful Travel Destination">
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&h=1080&fit=crop" alt="Mountain Landscape">
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop" alt="Ocean View">
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=1920&h=1080&fit=crop" alt="City Skyline">
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1920&h=1080&fit=crop" alt="Forest Path">
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=1920&h=1080&fit=crop" alt="Desert Landscape">
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <div class="spinner-text">Nookmate</div>
+            </div>
+            <p>Preparing your journey...</p>
+        </div>
+    </div>
+
+    <!-- Login Page -->
+    <div id="loginPage" class="page active">
+        <div class="auth-container">
+            <div class="logo-section">
+                <img src="logo.jpeg" alt="Nookmate logo" class="site-logo">
+                <h1 class="brand-name">Nookmate</h1>
+                <p class="tagline">Your Ultimate Travel Companion</p>
+            </div>
+            
+            <div class="auth-form">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="auth-btn">Login</button>
+                </form>
+                <p class="auth-switch">
+                    Don't have an account? <a href="#" onclick="showPage('signupPage')">Sign Up</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign Up Page -->
+    <div id="signupPage" class="page">
+        <div class="auth-container">
+            <div class="logo-section">
+                <img src="logo.jpeg" alt="Nookmate logo" class="site-logo">
+                <h1 class="brand-name">Nookmate</h1>
+                <p class="tagline">Start Your Journey With Us</p>
+            </div>
+            
+            <div class="auth-form">
+                <h2>Sign Up</h2>
+                <form id="signupForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" class="auth-btn">Sign Up</button>
+                </form>
+                <p class="auth-switch">
+                    Already have an account? <a href="#" onclick="showPage('loginPage')">Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboardPage" class="page">
+        <header class="header">
+            <div class="nav-container">
+                <div class="logo-section">
+                    <img src="logo.jpeg" alt="Nookmate logo" class="site-logo small-logo">
+                    <h1 class="brand-name">Nookmate</h1>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#" onclick="showPage('flightsPage')">Flights</a>
+                    <a href="#" onclick="showPage('hotelsPage')">Hotels</a>
+                    <a href="#" onclick="showPage('trainsPage')">Trains</a>
+                    <a href="#" onclick="showPage('busesPage')">Buses</a>
+                    <a href="#" onclick="showPage('cabsPage')">Cabs</a>
+                    <a href="#" onclick="showPage('tourGuidesPage')" class="tour-guide-link">Tour Guides</a>
+                </nav>
+                <div class="user-profile">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h2>Discover Your Next Adventure</h2>
+                    <p>Book flights, hotels, trains, buses, and tour guides all in one place</p>
+                </div>
+            </section>
+
+            <!-- Quick Booking Options -->
+            <section class="booking-options">
+                <div class="booking-grid">
+                    <div class="booking-card" onclick="showPage('flightsPage')">
+                        <i class="fas fa-plane"></i>
+                        <h3>Flights</h3>
+                        <p>Book domestic & international flights</p>
+                    </div>
+                    <div class="booking-card" onclick="showPage('hotelsPage')">
+                        <i class="fas fa-hotel"></i>
+                        <h3>Hotels</h3>
+                        <p>Find perfect accommodation</p>
+                    </div>
+                    <div class="booking-card" onclick="showPage('trainsPage')">
+                        <i class="fas fa-train"></i>
+                        <h3>Trains</h3>
+                        <p>Reserve train tickets</p>
+                    </div>
+                    <div class="booking-card" onclick="showPage('busesPage')">
+                        <i class="fas fa-bus"></i>
+                        <h3>Buses</h3>
+                        <p>Book bus tickets</p>
+                    </div>
+                    <div class="booking-card" onclick="showPage('cabsPage')">
+                        <i class="fas fa-taxi"></i>
+                        <h3>Cabs</h3>
+                        <p>Ride anywhere, anytime</p>
+                    </div>
+                    <div class="booking-card special-feature" onclick="showPage('tourGuidesPage')">
+                        <i class="fas fa-user-tie"></i>
+                        <h3>Tour Guides</h3>
+                        <p>Expert local guides with live tracking</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Popular Destinations -->
+            <section class="destinations-section">
+                <h2>Popular Destinations</h2>
+                <div class="destinations-grid">
+                    <div class="destination-card">
+                        <img src="https://picsum.photos/seed/paris/300/200.jpg" alt="Paris">
+                        <h3>Paris, France</h3>
+                        <p>City of Light and Romance</p>
+                    </div>
+                    <div class="destination-card">
+                        <img src="https://picsum.photos/seed/tokyo/300/200.jpg" alt="Tokyo">
+                        <h3>Tokyo, Japan</h3>
+                        <p>Modern meets Traditional</p>
+                    </div>
+                    <div class="destination-card">
+                        <img src="https://picsum.photos/seed/dubai/300/200.jpg" alt="Dubai">
+                        <h3>Dubai, UAE</h3>
+                        <p>Luxury and Innovation</p>
+                    </div>
+                    <div class="destination-card" onclick="showPage('jaipurPlacesPage')">
+                        <img src="https://picsum.photos/seed/jaipur/300/200.jpg" alt="Jaipur">
+                        <h3>Jaipur, India</h3>
+                        <p>The Pink City - Heritage & Culture</p>
+                    </div>
+                    <div class="destination-card" onclick="showPage('delhiMonumentsPage')">
+                        <img src="https://picsum.photos/seed/delhi/300/200.jpg" alt="Delhi">
+                        <h3>Delhi, India</h3>
+                        <p>Capital City - Historic Monuments</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Tour Guides Page -->
+    <div id="tourGuidesPage" class="page">
+        <div class="section-container">
+            <button class="back-btn" onclick="showPage('dashboardPage')">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            
+            <h2>Book Your Tour Guide</h2>
+            <p>Get expert local guides with real-time tracking and language preferences</p>
+            <div id="selectedTripPlaces" style="margin:12px 0 20px;color:#E8F4FF;font-weight:500;"></div>
+            
+            <div class="tour-guide-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Select Country</label>
+                        <select id="countrySelect">
+                            <option value="">Choose a country</option>
+                            <option value="france">France</option>
+                            <option value="japan">Japan</option>
+                            <option value="uae">UAE</option>
+                            <option value="india">India</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Select City</label>
+                        <select id="citySelect">
+                            <option value="">Choose a city</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Preferred Language</label>
+                        <select id="languageSelect">
+                            <option value="">Choose language</option>
+                            <option value="english">English</option>
+                            <option value="french">French</option>
+                            <option value="japanese">Japanese</option>
+                            <option value="arabic">Arabic</option>
+                            <option value="hindi">Hindi</option>
+                            <option value="spanish">Spanish</option>
+                            <option value="german">German</option>
+                            <option value="italian">Italian</option>
+                            <option value="madrasi">Madrasi</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tour Date</label>
+                        <input type="date" id="tourDate">
+                    </div>
+                </div>
+                
+                <button class="search-btn" onclick="searchTourGuides()">
+                    <i class="fas fa-search"></i> Search Tour Guides
+                </button>
+            </div>
+            
+            <div id="tourGuidesResults" class="tour-guides-results">
+                <!-- Results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Flights Booking Page -->
+    <div id="flightsPage" class="page">
+        <div class="section-container">
+            <button class="back-btn" onclick="showPage('dashboardPage')">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            
+            <h2>Book Flights</h2>
+            <p>Find and book domestic and international flights</p>
+            
+            <div class="booking-search-form">
+                <div class="trip-type-tabs">
+                    <button class="trip-tab active" onclick="setTripType('oneway')">One Way</button>
+                    <button class="trip-tab" onclick="setTripType('roundtrip')">Round Trip</button>
+                    <button class="trip-tab" onclick="setTripType('multicity')">Multi City</button>
+                </div>
+                
+                <div class="search-form-grid">
+                    <div class="form-group">
+                        <label>From</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-plane-departure"></i>
+                            <input type="text" id="flightFrom" placeholder="Departure city" value="Delhi">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>To</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-plane-arrival"></i>
+                            <input type="text" id="flightTo" placeholder="Arrival city" value="Mumbai">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Departure Date</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-calendar"></i>
+                            <input type="date" id="flightDeparture">
+                        </div>
+                    </div>
+                    <div class="form-group" id="returnDateGroup" style="display: none;">
+                        <label>Return Date</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-calendar"></i>
+                            <input type="date" id="flightReturn">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Passengers & Class</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-users"></i>
+                            <select id="passengerClass">
+                                <option>1 Adult, Economy</option>
+                                <option>1 Adult, Business</option>
+                                <option>2 Adults, Economy</option>
+                                <option>2 Adults, Business</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="search-btn" onclick="searchFlights()">
+                    <i class="fas fa-search"></i> Search Flights
+                </button>
+            </div>
+            
+            <div id="flightsResults" class="booking-results">
+                <!-- Flight results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Trains Booking Page -->
+    <div id="trainsPage" class="page">
+        <div class="section-container">
+            <button class="back-btn" onclick="showPage('dashboardPage')">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            
+            <h2>Book Trains</h2>
+            <p>Reserve train tickets across India</p>
+            
+            <div class="booking-search-form">
+                <div class="search-form-grid">
+                    <div class="form-group">
+                        <label>From Station</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-train"></i>
+                            <input type="text" id="trainFrom" placeholder="Departure station" value="New Delhi">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>To Station</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-train"></i>
+                            <input type="text" id="trainTo" placeholder="Arrival station" value="Mumbai Central">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Travel Date</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-calendar"></i>
+                            <input type="date" id="trainDate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Class</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-chair"></i>
+                            <select id="trainClass">
+                                <option>All Classes</option>
+                                <option>AC First Class (1A)</option>
+                                <option>AC 2 Tier (2A)</option>
+                                <option>AC 3 Tier (3A)</option>
+                                <option>AC Chair Car (CC)</option>
+                                <option>Sleeper (SL)</option>
+                                <option>Second Sitting (2S)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="search-btn" onclick="searchTrains()">
+                    <i class="fas fa-search"></i> Search Trains
+                </button>
+            </div>
+            
+            <div id="trainsResults" class="booking-results">
+                <!-- Train results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Hotels Booking Page -->
+    <div id="hotelsPage" class="page">
+        <div class="section-container">
+            <button class="back-btn" onclick="showPage('dashboardPage')">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            
+            <h2>Book Hotels</h2>
+            <p>Find and book your perfect accommodation</p>
+            
+            <div class="booking-search-form">
+                <div class="search-form-grid">
+                    <div class="form-group">
+                        <label>Destination</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" id="hotelCity" placeholder="City name" value="Delhi">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Check-in Date</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-calendar"></i>
+                            <input type="date" id="hotelCheckIn">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Check-out Date</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-calendar"></i>
+                            <input type="date" id="hotelCheckOut">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Rooms & Guests</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-users"></i>
+                            <select id="hotelRooms">
+                                <option>1 Room, 2 Guests</option>
+                                <option>1 Room, 1 Guest</option>
+                                <option>2 Rooms, 4 Guests</option>
+                                <option>3 Rooms, 6 Guests</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="search-btn" onclick="searchHotels()">
+                    <i class="fas fa-search"></i> Search Hotels
+                </button>
+            </div>
+            
+            <div id="hotelsResults" class="booking-results">
+                <!-- Hotel results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Buses Booking Page -->
+    <div id="busesPage" class="page">
+        <div class="section-container">
+            <button class="back-btn" onclick="showPage('dashboardPage')">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            
+            <h2>Book Buses</h2>
+            <p>Find and book bus tickets for your journey</p>
+            
+            <div class="booking-search-form">
+                <div class="search-form-grid">
+                    <div class="form-group">
+                        <label>From</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-bus"></i>
+                            <input type="text" id="busFrom" placeholder="Departure city" value="Delhi">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>To</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-bus"></i>
+                            <input type="text" id="busTo" placeholder="Arrival city" value="Jaipur">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Travel Date</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-calendar"></i>
+                            <input type="date" id="busDate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Bus Type</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-shuttle-van"></i>
+                            <select id="busType">
+                                <option>All Types</option>
+                                <option>Volvo AC</option>
+                                <option>Non-AC Sleeper</option>
+                                <option>AC Sleeper</option>
+                                <option>Mercedes Benz</option>
+                                <option>Scania AC</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="search-btn" onclick="searchBuses()">
+                    <i class="fas fa-search"></i> Search Buses
+                </button>
+            </div>
+            
+            <div id="busesResults" class="booking-results">
+                <!-- Bus results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cabs Page -->
+    <div id="cabsPage" class="page">
+        <div class="section-container">
+            <button class="back-btn" onclick="showPage('dashboardPage')">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            
+            <h2>Book Cabs</h2>
+            <p>Find and book reliable cab services for your journey</p>
+            
+            <div class="booking-search-form">
+                <div class="search-form-grid">
+                    <div class="form-group">
+                        <label>Pickup Location</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" id="cabPickup" placeholder="Enter pickup location" value="Delhi">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Drop Location</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" id="cabDropoff" placeholder="Enter dropoff location" value="Jaipur">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Pickup Date</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-calendar"></i>
+                            <input type="date" id="cabDate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Pickup Time</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-clock"></i>
+                            <input type="time" id="cabTime" value="10:00">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Cab Type</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-car"></i>
+                            <select id="cabType">
+                                <option>Economy</option>
+                                <option>Premium</option>
+                                <option>SUV</option>
+                                <option>Luxury</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Passengers</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-users"></i>
+                            <input type="number" id="cabPassengers" placeholder="Number of passengers" value="1" min="1" max="6">
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="search-btn" onclick="searchCabs()">
+                    <i class="fas fa-search"></i> Search Cabs
+                </button>
+            </div>
+            
+            <div id="cabsResults" class="booking-results">
+                <!-- Cab results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Jaipur Places Page -->
+    <div id="jaipurPlacesPage" class="page">
+        <div class="section-container">
+            <button class="back-btn" onclick="showPage('dashboardPage')">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            
+            <h2 style="font-size: 42px; font-weight: 800; margin-bottom: 10px; background: linear-gradient(135deg, #ffffff, #c0d4f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Jaipur - The Pink City</h2>
+            <p style="font-size: 18px; color: rgba(255, 255, 255, 0.9); margin-bottom: 30px; font-weight: 500;">Explore the magnificent heritage and cultural treasures of Rajasthan's capital</p>
+
+            <div class="trip-summary-bar" id="tripSummaryBar" style="display: none;">
+                <div class="trip-info">
+                    <i class="fas fa-check-circle"></i>
+                    <span id="selectedPlacesCount">0</span> places selected
+                </div>
+                <button class="plan-trip-btn" onclick="openTripBooking()">
+                    <i class="fas fa-arrow-right"></i> Plan Trip
+                </button>
+            </div>
+            
+            <div class="jaipur-places-grid" id="jaipurPlacesGrid">
+                <!-- Places will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Delhi Monuments Page -->
+    <div id="delhiMonumentsPage" class="page">
+        <div class="section-container">
+            <button class="back-btn" onclick="showPage('dashboardPage')">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            
+            <div id="delhiPlacesGrid" class="booking-results">
+                <!-- Delhi monuments will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Trip Planning Page (for selecting how to reach the destination) -->
+    <div id="tripPlanningPage" class="page">
+        <div class="section-container">
+            <button class="back-btn" onclick="goBackToPlaces()">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+
+            <h2 style="font-size: 42px; font-weight: 800; margin-bottom: 10px; background: linear-gradient(135deg, #ffffff, #c0d4f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Plan Your Jaipur Trip</h2>
+            <p style="font-size: 16px; color: rgba(255, 255, 255, 0.9); margin-bottom: 30px; font-weight: 500;">You have selected <strong id="tripPlacesListCount">0</strong> places to visit</p>
+
+            <div class="selected-places-review" id="selectedPlacesReview">
+                <!-- Selected places will be shown here -->
+            </div>
+
+            <div class="trip-booking-options">
+                <h3 style="font-size: 28px; font-weight: 700; color: #ffffff; margin-bottom: 12px;">How would you like to travel to Jaipur?</h3>
+                <p class="info-text">Choose the preferred mode(s) of transportation for your journey</p>
+
+                <div class="booking-options-grid">
+                    <div class="booking-option-card">
+                        <div class="option-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <h4>Flights</h4>
+                        <p>Quick and convenient way to reach Jaipur</p>
+                        <label class="checkbox">
+                            <input type="checkbox" value="flight" class="booking-checkbox">
+                            <span>Book Flight</span>
+                        </label>
+                    </div>
+
+                    <div class="booking-option-card">
+                        <div class="option-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h4>Cabs</h4>
+                        <p>Door-to-door personal transportation</p>
+                        <label class="checkbox">
+                            <input type="checkbox" value="cab" class="booking-checkbox">
+                            <span>Book Cab</span>
+                        </label>
+                    </div>
+
+                    <div class="booking-option-card">
+                        <div class="option-icon">
+                            <i class="fas fa-train"></i>
+                        </div>
+                        <h4>Trains</h4>
+                        <p>Comfortable and economical journey</p>
+                        <label class="checkbox">
+                            <input type="checkbox" value="train" class="booking-checkbox">
+                            <span>Book Train</span>
+                        </label>
+                    </div>
+
+                    <div class="booking-option-card">
+                        <div class="option-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h4>Tour Guide</h4>
+                        <p>Expert guide for local knowledge</p>
+                        <label class="checkbox">
+                            <input type="checkbox" value="guide" class="booking-checkbox">
+                            <span>Book Guide</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="booking-selection-summary" id="bookingSelectionSummary">
+                    <h4>Your Selection</h4>
+                    <ul id="selectedBookingsList">
+                        <li class="empty-state"><i class="fas fa-info-circle"></i> Select at least one option</li>
+                    </ul>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="continue-btn" onclick="proceedWithSelectedBookings()" disabled id="proceedBtn">
+                        <i class="fas fa-check"></i> Continue Booking
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Page -->
+    <div id="paymentPage" class="page">
+        <div class="section-container">
+            <button class="back-btn" onclick="goBackFromPayment()">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            
+            <div class="payment-wrapper">
+                <div class="payment-main">
+                    <h2>Checkout</h2>
+                    <p class="booking-reference" id="bookingRef">Order ID: #XXXXXXXXX</p>
+                    
+                    <div class="booking-summary" id="bookingSummary">
+                        <!-- Booking summary will be populated here -->
+                    </div>
+                    
+                    <form id="paymentForm" class="payment-form">
+                        <div class="form-section">
+                            <h3>Passenger Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" id="passengerName" placeholder="Enter your full name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" id="passengerEmail" placeholder="Enter your email" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="tel" id="passengerPhone" placeholder="+91 Enter your phone number" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Date of Birth</label>
+                                    <input type="date" id="passengerDOB" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h3>Offer & Insurance</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Promo Code (Optional)</label>
+                                    <div class="promo-input">
+                                        <input type="text" id="promoCode" placeholder="Enter promo code">
+                                        <button type="button" class="apply-btn" onclick="applyPromo()">Apply</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="insuranceOption">
+                                        <span>Add Travel Insurance (+₹99)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h3>Payment Method</h3>
+                            <div class="payment-methods">
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="card" checked onchange="togglePaymentForm()">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Credit/Debit Card</span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="upi" onchange="togglePaymentForm()">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>UPI</span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="wallet" onchange="togglePaymentForm()">
+                                    <i class="fas fa-wallet"></i>
+                                    <span>Digital Wallet</span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="netbanking" onchange="togglePaymentForm()">
+                                    <i class="fas fa-university"></i>
+                                    <span>Net Banking</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section" id="cardDetails" style="display: block;">
+                            <h3>Card Information</h3>
+                            <div class="form-group">
+                                <label>Card Number</label>
+                                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCardNumber(this)" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Expiry Date</label>
+                                    <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5" oninput="formatExpiry(this)" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>CVV</label>
+                                    <input type="text" id="cvv" placeholder="123" maxlength="3" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Cardholder Name</label>
+                                    <input type="text" id="cardholderName" placeholder="Name on card" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section" id="upiDetails" style="display: none;">
+                            <h3>UPI Payment</h3>
+                            <div class="form-group">
+                                <label>UPI ID</label>
+                                <input type="text" id="upiId" placeholder="yourname@okhdfcbank" required>
+                            </div>
+                            <p class="info-text">You will be redirected to your UPI app for payment authentication</p>
+                        </div>
+
+                        <div class="form-section" id="walletDetails" style="display: none;">
+                            <h3>Digital Wallet</h3>
+                            <div class="wallet-options">
+                                <label class="wallet-option">
+                                    <input type="radio" name="wallet" value="paytm">
+                                    <span>PayTM</span>
+                                </label>
+                                <label class="wallet-option">
+                                    <input type="radio" name="wallet" value="googlepay">
+                                    <span>Google Pay</span>
+                                </label>
+                                <label class="wallet-option">
+                                    <input type="radio" name="wallet" value="phonepe">
+                                    <span>PhonePe</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-section" id="netbankingDetails" style="display: none;">
+                            <h3>Select Your Bank</h3>
+                            <div class="form-group">
+                                <select id="bankSelect" required>
+                                    <option value="">Select a bank</option>
+                                    <option value="hdfc">HDFC Bank</option>
+                                    <option value="icici">ICICI Bank</option>
+                                    <option value="sbi">SBI Bank</option>
+                                    <option value="axisbank">Axis Bank</option>
+                                    <option value="kotak">Kotak Bank</option>
+                                    <option value="bobaroda">Bank of Baroda</option>
+                                </select>
+                            </div>
+                            <p class="info-text">You will be redirected to your bank's website for payment</p>
+                        </div>
+                        
+                        <div class="form-section">
+                            <label class="checkbox">
+                                <input type="checkbox" id="termsAgree" required>
+                                <span>I agree to the <a href="#">terms and conditions</a> and <a href="#">privacy policy</a></span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="pay-btn" onclick="processPayment(event)">
+                            <i class="fas fa-lock"></i> Pay Now ₹<span id="finalAmount">525</span>
+                        </button>
+
+                        <div class="security-badges">
+                            <div class="badge">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>SSL Secured</span>
+                            </div>
+                            <div class="badge">
+                                <i class="fas fa-lock"></i>
+                                <span>100% Safe</span>
+                            </div>
+                            <div class="badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Verified</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="payment-sidebar">
+                    <div class="price-card">
+                        <h3>Price Breakdown</h3>
+                        <div class="price-breakdown" id="priceBreakdown">
+                            <!-- Price details will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>Need Help?</h4>
+                        <p>Contact our support team 24/7</p>
+                        <p class="contact-info">
+                            <i class="fas fa-phone"></i> 1-800-TRAVEL
+                        </p>
+                        <p class="contact-info">
+                            <i class="fas fa-envelope"></i> support@nookmate.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Widget -->
+    <div id="chatWidget" class="chat-widget" aria-hidden="true">
+        <div class="chat-header">
+            <div class="chat-title">Nookmate Assistant</div>
+            <button class="chat-close" onclick="toggleChat(false)">✕</button>
+        </div>
+        <div id="chatMessages" class="chat-messages"></div>
+        <form id="chatForm" class="chat-input" onsubmit="sendChatMessage(event)">
+            <input id="chatInput" type="text" placeholder="Ask me about Jaipur, bookings, or guides..." autocomplete="off">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <button id="chatToggle" class="chat-toggle" onclick="toggleChat()" aria-label="Open chat">💬</button>
+
+    <!-- Account/Profile Page -->
+    <div id="accountPage" class="page">
+        <div class="account-container">
+            <div class="account-header">
+                <button onclick="showPage('dashboardPage')" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <h2>My Account</h2>
+            </div>
+
+            <div class="account-content">
+                <!-- Profile Section -->
+                <div class="profile-section">
+                    <div class="profile-card">
+                        <div class="profile-avatar-section">
+                            <div class="profile-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="profile-info">
+                                <h3 id="profileName">John Doe</h3>
+                                <p id="profileEmail">john@example.com</p>
+                                <p id="profileMember">Member since Feb 2026</p>
+                            </div>
+                        </div>
+                        <button class="edit-profile-btn" onclick="toggleEditProfile()">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </button>
+                    </div>
+
+                    <!-- Edit Profile Form -->
+                    <div id="editProfileForm" class="edit-profile-form" style="display: none;">
+                        <h3>Edit Profile Information</h3>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="editName" placeholder="Full Name" value="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="editEmail" placeholder="Email" value="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" id="editPhone" placeholder="Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <label>Country</label>
+                            <input type="text" id="editCountry" placeholder="Country">
+                        </div>
+                        <div class="form-actions">
+                            <button onclick="saveProfile()" class="save-btn">
+                                <i class="fas fa-save"></i> Save Changes
+                            </button>
+                            <button onclick="toggleEditProfile()" class="cancel-btn">
+                                <i class="fas fa-times"></i> Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bookings Section -->
+                <div class="bookings-section">
+                    <h3>My Bookings</h3>
+                    <div class="bookings-list" id="bookingsList">
+                        <div class="booking-item">
+                            <div class="booking-header">
+                                <div class="booking-type"><i class="fas fa-plane"></i> Flight</div>
+                                <div class="booking-status completed">Completed</div>
+                            </div>
+                            <div class="booking-details">
+                                <p><strong>Route:</strong> Delhi (DEL) → Mumbai (BOM)</p>
+                                <p><strong>Date:</strong> Jan 15, 2026</p>
+                                <p><strong>Booking ID:</strong> NK123456</p>
+                            </div>
+                        </div>
+                        <div class="booking-item">
+                            <div class="booking-header">
+                                <div class="booking-type"><i class="fas fa-hotel"></i> Hotel</div>
+                                <div class="booking-status confirmed">Confirmed</div>
+                            </div>
+                            <div class="booking-details">
+                                <p><strong>Hotel:</strong> Taj Palace Hotel, Jaipur</p>
+                                <p><strong>Check-in:</strong> Feb 10, 2026</p>
+                                <p><strong>Booking ID:</strong> NK123457</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Methods Section -->
+                <div class="payment-methods-section">
+                    <h3>Payment Methods</h3>
+                    <div class="payment-methods-list">
+                        <div class="payment-method-item">
+                            <div class="payment-icon-card"><i class="fas fa-credit-card"></i></div>
+                            <div class="payment-info">
+                                <p><strong>Visa Card</strong></p>
+                                <p>**** **** **** 4242</p>
+                            </div>
+                            <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="payment-method-item">
+                            <div class="payment-icon-card"><i class="fas fa-mobile-alt"></i></div>
+                            <div class="payment-info">
+                                <p><strong>UPI</strong></p>
+                                <p>john.doe@upi</p>
+                            </div>
+                            <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <button class="add-payment-btn" onclick="toggleAddPayment()">
+                        <i class="fas fa-plus"></i> Add Payment Method
+                    </button>
+                </div>
+
+                <!-- Settings Section -->
+                <div class="settings-section">
+                    <h3>Settings & Preferences</h3>
+                    <div class="settings-list">
+                        <div class="setting-item">
+                            <div class="setting-label">
+                                <label>Email Notifications</label>
+                                <p>Receive booking updates and offers</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-label">
+                                <label>SMS Notifications</label>
+                                <p>Get SMS alerts for bookings</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-label">
+                                <label>Two-Factor Authentication</label>
+                                <p>Extra security for your account</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Actions -->
+                <div class="account-actions">
+                    <button onclick="changePassword()" class="action-btn">
+                        <i class="fas fa-lock"></i> Change Password
+                    </button>
+                    <button onclick="logout()" class="action-btn logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
